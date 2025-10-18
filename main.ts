@@ -1683,15 +1683,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile158`, function (sprite, location) {
     if (controller.A.isPressed()) {
-        tiles.setCurrentTilemap(tilemap`level41`)
+        tiles.setCurrentTilemap(tilemap`level15`)
         game.showLongText("Hello! Who are you?", DialogLayout.Bottom)
         game.showLongText("What? You're saying I look like that guy over there? Never seen him!", DialogLayout.Bottom)
         game.showLongText("Ya' know what? I feel like joining you guys. I have the feeling that we're going to go on a great adventure!", DialogLayout.Bottom)
         game.showLongText("My name? Call me Bright.", DialogLayout.Bottom)
-        game.showLongText("I'll teach you a new spell! It's called FurStrm", DialogLayout.Bottom)
-        game.showLongText("You leaned FurStrm!", DialogLayout.Bottom)
-        Spell1 = "FurStrm"
-        SpellsLearnt += 1
+        game.showLongText("Bright joins you.", DialogLayout.Bottom)
         mySprite7 = sprites.create(img`
             ..cc......cc....
             ..cfc....cfc....
@@ -1714,16 +1711,15 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile158`, function (sprite,
             dd1111dd1111dd..
             .dddddddddddd...
             ...dddddddd.....
-            `, SpriteKind.Player)
+            `, SpriteKind.P2)
         P2Teleport()
         statusbar3 = statusbars.create(10, 2, StatusBarKind.P2Health)
-        statusbar3.max = 40
+        statusbar3.max = 45
         statusbar3.setColor(6, 2, 9)
-        statusbar3.value = 40
+        statusbar3.value = 45
         statusbar3.attachToSprite(mySprite7)
         mySprite7.z = mySprite.z - 1
         NumberOfPlayers = 3
-        game.showLongText("Bright joins you.", DialogLayout.Bottom)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile44`, function (sprite, location) {
@@ -1762,17 +1758,17 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile100`, function (sprite,
             ...ffffffff4....
             ...5ffffff444...
             ..f55444444f4..c
-            .c6f554444f6c.cf
-            cf66ffffff66fc6f
-            cffcffffffcffcf6
-            .cccffffffcccfff
+            .c6f554444f6c.cc
+            cf66ffffff66fc6c
+            cffcffffffcffcfc
+            .cccffffffcccffc
             ...cffffffcffffc
             ...cffccffccffc.
             ..fcffccffcfcc..
             .fcfffccfffcf...
             ffccccffccccff..
             .ffffffffffff...
-            ...ffffffff.....
+            ..ffffffffff....
             `, SpriteKind.P2)
         P2Teleport()
         statusbar3 = statusbars.create(10, 2, StatusBarKind.P2Health)
@@ -2041,6 +2037,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile105`, function (sprite,
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv3Enemy, function (sprite, otherSprite) {
     game.showLongText("F1R3B@11 Approaches!", DialogLayout.Bottom)
+    otherSprite.follow(sprite, 0)
     EnemyLevel = 3
     CurrentTilemap = tileUtil.currentTilemap()
     PlayerTurn = false
@@ -2158,6 +2155,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile103`, function (sprite,
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, otherSprite) {
     game.showLongText("ShadowOfDarkness Approaches!", DialogLayout.Bottom)
+    otherSprite.follow(sprite, 0)
     EnemyLevel = 4
     CurrentTilemap = tileUtil.currentTilemap()
     PlayerTurn = false
@@ -2212,6 +2210,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, othe
     tiles.placeOnTile(sprite, tiles.getTileLocation(3, 2))
     P2Teleport()
     tiles.placeOnTile(otherSprite, tiles.getTileLocation(3, 1))
+    otherSprite.y += -4
     statusbar2 = statusbars.create(20, 4, StatusBarKind.EnemyHealth)
     statusbar2.attachToSprite(otherSprite)
     statusbar2.max = 170
@@ -2847,7 +2846,7 @@ game.onUpdateInterval(5000, function () {
                     mySprite3.follow(mySprite, 70)
                     Enemies += 1
                 }
-            } else if (tileUtil.currentTilemap() == tilemap`level41`) {
+            } else if (tiles.getTilesByType(assets.tile`myTile138`).length > 1) {
                 if (Math.percentChance(15)) {
                     mySprite3 = sprites.create(img`
                         ................
@@ -3320,6 +3319,146 @@ forever(function () {
                 ..fcfffccfffcf..
                 .ffccccffccccff.
                 ..ffffffffffff..
+                `],
+            100,
+            false
+            )
+        }
+    }
+    if (mySprite7) {
+        if (mySprite6.tilemapLocation().column < Column) {
+            mySprite6.z = mySprite.z - 1
+            animation.runImageAnimation(
+            mySprite6,
+            [img`
+                ....ffcf........
+                ....ff6c6.......
+                .....6fcf.......
+                .....ffcf.......
+                .....fffc.......
+                ....ffff6c......
+                ...ffffff1c.....
+                ...ffffff5c.....
+                ...4ffffff5.....
+                ..444ffff55.....
+                ....444445......
+                .....ffff.......
+                cc...c66c.......
+                cfc..cffc.......
+                cf6cccffc.......
+                c6fffcccc.......
+                .cffcc66c.......
+                ..cc.cffc.......
+                .....cfffc......
+                .....ccccc......
+                `],
+            100,
+            false
+            )
+        } else if (mySprite6.tilemapLocation().column > Column) {
+            mySprite6.z = mySprite.z - 1
+            animation.runImageAnimation(
+            mySprite6,
+            [img`
+                ........fcff....
+                .......6c6ff....
+                .......fcf6.....
+                .......fcff.....
+                .......cfff.....
+                ......c6ffff....
+                .....c1ffffff...
+                .....c5ffffff...
+                .....5ffffff4...
+                .....55ffff444..
+                ......544444....
+                .......ffff.....
+                .......c66c...cc
+                .......cffc..cfc
+                .......cffccc6fc
+                .......ccccfff6c
+                .......c66ccffc.
+                .......cffc.cc..
+                ......cfffc.....
+                ......ccccc.....
+                `],
+            100,
+            false
+            )
+        } else if (mySprite6.tilemapLocation().row > Row) {
+            mySprite6.z = mySprite.z + 1
+            animation.runImageAnimation(
+            mySprite6,
+            [img`
+                ...ff......ff...
+                ...ff6....6ff...
+                ...66ff..ff66...
+                ...ffffffffff...
+                ....ffffffff....
+                ....ffffffff....
+                ....ffffffff....
+                ....ffffffff4...
+                ....5ffffff444..
+                ...f55444444f4..
+                ..c6f554444f6c.c
+                .cf66ffffff66fc6
+                .cffcffffffcffcf
+                ..cccfffffccccff
+                ....cffffcffffff
+                ....cffccfcffffc
+                ...fcffccffcccc.
+                ..fcfffccfffcf..
+                .ffccccffccccff.
+                ..ffffffffffff..
+                `],
+            100,
+            false
+            )
+        } else if (mySprite6.tilemapLocation().row < Row) {
+            mySprite6.z = mySprite.z - 1
+            animation.runImageAnimation(
+            mySprite6,
+            [img`
+                ...ff......ff...
+                ...ff6....6ff...
+                ...66ff..ff66...
+                ...ffff66ffff...
+                ....fff66fff....
+                ....ff1ff1ff....
+                ....ff5ff5ff....
+                ....ffffffff4...
+                ....5ffffff444..
+                ...f55444444f4..
+                ..c6f554444f6c.c
+                .cf66ffffff66fc6
+                .cffcffffffcffcf
+                ..cccffffffcccff
+                ....cffffffcffff
+                ....cffccffccffc
+                ...fcffccffcfcc.
+                ..fcfffccfffcf..
+                .ffccccffccccff.
+                ..ffffffffffff..
+                `,img`
+                ..cc......cc....
+                ..cfc....cfc....
+                ..cf69..96fc....
+                ..c69999996c....
+                ...99999999.....
+                ...99199199.....
+                ...99299299.....
+                ...111ff1112....
+                ...4111111222...
+                .114422222222..1
+                .199442222991.1d
+                1c1911991191c1dd
+                1cc19111191cc11d
+                .111911119111991
+                ...1999999199991
+                ...199119911991.
+                ..d19911991d....
+                .d1999119991d...
+                dd1111dd1111dd..
+                .dddddddddddd...
                 `],
             100,
             false
