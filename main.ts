@@ -2764,7 +2764,7 @@ scene.onPathCompletion(SpriteKind.P2, function (sprite, location) {
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, location) {
     sprites.destroy(mySprite2)
-    tiles.setCurrentTilemap(tilemap`level8`)
+    tiles.setCurrentTilemap(tilemap`level2`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(23, 6))
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile31`, function (sprite, location) {
