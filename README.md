@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://foxgod25.github.io/a-cats-knightv1/](https://foxgod25.github.io/a-cats-knightv1/)
+> Open this page at [https://foxgod25.github.io/A-Cats-Knightv1/](https://foxgod25.github.io/a-cats-knightv1/)
 
 ## Use as Extension
 
