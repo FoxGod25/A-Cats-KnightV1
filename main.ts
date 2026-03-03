@@ -8,76 +8,11 @@ namespace SpriteKind {
     export const Lv4Enemy = SpriteKind.create()
     export const Lv3Enemy = SpriteKind.create()
     export const Null_Txt = SpriteKind.create()
-    export const P3 = SpriteKind.create()
-    export const P3Down = SpriteKind.create()
 }
 namespace StatusBarKind {
     export const Lv2EnemyHealth = StatusBarKind.create()
     export const P2Health = StatusBarKind.create()
-    export const P3Health = StatusBarKind.create()
 }
-statusbars.onZero(StatusBarKind.P3Health, function (status) {
-    NumberOfPlayers += -1
-    while (statusbar5.value == 0) {
-        animation.runImageAnimation(
-        statusbar5.spriteAttachedTo(),
-        [img`
-            ..cc......cc....
-            ..cfc....cfc....
-            ..cf69..96fc....
-            ..c69999996c....
-            ...99999999.....
-            ...99999999.....
-            .1199999999.....
-            1cc11999911.....
-            1c221199114.....
-            .112222224411..1
-            .129222244991.1d
-            ..1911991191c1dd
-            ...19111191cc11d
-            ...1911111111991
-            ...1999919999991
-            ...199119199991.
-            ..d19911991111..
-            .d1999119991d...
-            dd1111dd1111dd..
-            .dddddddddddd...
-            `],
-        100,
-        true
-        )
-        statusbar5.spriteAttachedTo().setKind(SpriteKind.P3Down)
-        if (statusbar5.value >= 1) {
-            animation.runImageAnimation(
-            statusbar5.spriteAttachedTo(),
-            [img`
-                ..cc......cc....
-                ..cfc....cfc....
-                ..cf69..96fc....
-                ..c69999996c....
-                ...99999999.....
-                ...92999929.....
-                ...99299299.....
-                ...111ff1112....
-                ...4111111222...
-                .114422222222..1
-                .199442222991.1d
-                1c1911991191c1dd
-                1cc19111191cc11d
-                .111911119111991
-                ...1999999199991
-                ...199119911991.
-                ..d19911991d....
-                .d1999119991d...
-                dd1111dd1111dd..
-                .dddddddddddd...
-                `],
-            100,
-            true
-            )
-        }
-    }
-})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile76`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level2`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 8))
@@ -2006,9 +1941,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile158`, function (sprite, location) {
     if (controller.A.isPressed()) {
-        tiles.setCurrentTilemap(tilemap`level46`)
+        tiles.setCurrentTilemap(tilemap`level15`)
         game.showLongText("Hello! Who are you?", DialogLayout.Bottom)
-        game.showLongText("What? You're saying I look like that guy over there? Never seen him before!", DialogLayout.Bottom)
+        game.showLongText("What? You're saying I look like that guy over there? Never seen him!", DialogLayout.Bottom)
         game.showLongText("Ya' know what? I feel like joining you guys. I have the feeling that we're going to go on a great adventure!", DialogLayout.Bottom)
         game.showLongText("My name? Call me Bright.", DialogLayout.Bottom)
         game.showLongText("Bright joins you.", DialogLayout.Bottom)
@@ -2034,13 +1969,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile158`, function (sprite,
             dd1111dd1111dd..
             .dddddddddddd...
             ...dddddddd.....
-            `, SpriteKind.P3)
+            `, SpriteKind.P2)
         P2Teleport()
-        statusbar5 = statusbars.create(10, 2, StatusBarKind.P3Health)
-        statusbar5.max = 45
-        statusbar5.setColor(6, 2, 9)
-        statusbar5.value = 45
-        statusbar5.attachToSprite(mySprite7)
+        statusbar3 = statusbars.create(10, 2, StatusBarKind.P2Health)
+        statusbar3.max = 45
+        statusbar3.setColor(6, 2, 9)
+        statusbar3.value = 45
+        statusbar3.attachToSprite(mySprite7)
         mySprite7.z = mySprite.z - 1
         NumberOfPlayers = 3
     }
@@ -2565,11 +2500,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile125`, function (sprite,
             game.showLongText("You have the wood? Great! I've just lit the fire at the top. Good luck!", DialogLayout.Bottom)
             scene.cameraShake(10, 1000)
             timer.after(1000, function () {
-                if (NumberOfPlayers > 3) {
-                    tiles.setCurrentTilemap(tilemap`level41`)
-                } else {
-                    tiles.setCurrentTilemap(tilemap`level46`)
-                }
+                tiles.setCurrentTilemap(tilemap`level41`)
                 Spawning = true
             })
         } else {
@@ -2732,7 +2663,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile103`, function (sprite,
     P2Teleport()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, otherSprite) {
-    game.showLongText("Shadow of the Anomaly Approaches!", DialogLayout.Bottom)
+    game.showLongText("ShadowOfDarkness Approaches!", DialogLayout.Bottom)
     EnemyLevel = 4
     CurrentTilemap = tileUtil.currentTilemap()
     PlayerTurn = false
@@ -2792,48 +2723,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, othe
             `)
         value8.follow(mySprite, 0)
     }
-    for (let value8 of sprites.allOfKind(SpriteKind.Lv3Enemy)) {
-        value8.setImage(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `)
-        value8.follow(mySprite, 0)
-    }
-    for (let value8 of sprites.allOfKind(SpriteKind.Lv4Enemy)) {
-        value8.setImage(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `)
-        value8.follow(mySprite, 0)
-    }
     Fight = true
     otherSprite.setImage(EnemyImg)
     tiles.setCurrentTilemap(tilemap`level6`)
@@ -2844,7 +2733,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, othe
     statusbar2.attachToSprite(otherSprite)
     statusbar2.max = 120
     statusbar2.value = statusbar2.max
-    statusbar2.setColor(4, 12, 2)
+    statusbar2.setColor(2, 15, 6)
     timer.after(500, function () {
         for (let index = 0; index < 5; index++) {
             pause(750)
@@ -3194,7 +3083,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
                 . . . . . . . . . . . . . . . . 
                 `, otherSprite, randint(-50, 50), 100)
             projectile.setFlag(SpriteFlag.GhostThroughWalls, true)
-            projectile.setKind(SpriteKind.Projectile)
         }
         timer.after(3750, function () {
             playerTurn()
@@ -3250,7 +3138,6 @@ let LuckyQuest = false
 let FirstTimeReadLuckyQuest = 0
 let Row = 0
 let Column = 0
-let statusbar5: StatusBarSprite = null
 let SpellsLearnt = 0
 let Spell3 = ""
 let Spell2 = ""
