@@ -836,22 +836,33 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv2Enemy, function (sprite, othe
     EnemyImg = otherSprite.image
     for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
         value.setImage(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
             `)
         value.follow(mySprite, 0)
     }
@@ -1708,8 +1719,8 @@ statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
     Fight = false
     tiles.setCurrentTilemap(CurrentTilemap)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(Column, Row))
-    for (let value3 of sprites.allOfKind(SpriteKind.Enemy)) {
-        value3.setImage(img`
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        value.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -1727,7 +1738,7 @@ statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
             6 6 6 9 9 9 9 9 9 9 9 9 9 6 6 6 
             . 6 6 6 6 6 6 6 6 6 6 6 6 6 6 . 
             `)
-        value3.follow(mySprite, 70)
+        value.follow(mySprite, 70)
     }
     for (let value4 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
         value4.setImage(img`
@@ -2326,8 +2337,8 @@ statusbars.onZero(StatusBarKind.Lv2EnemyHealth, function (status) {
     Fight = false
     tiles.setCurrentTilemap(CurrentTilemap)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(Column, Row))
-    for (let value5 of sprites.allOfKind(SpriteKind.Enemy)) {
-        value5.setImage(img`
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        value.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2345,7 +2356,7 @@ statusbars.onZero(StatusBarKind.Lv2EnemyHealth, function (status) {
             6 6 6 9 9 9 9 9 9 9 9 9 9 6 6 6 
             . 6 6 6 6 6 6 6 6 6 6 6 6 6 6 . 
             `)
-        value5.follow(mySprite, 70)
+        value.follow(mySprite, 70)
     }
     for (let value6 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
         value6.setImage(img`
@@ -2538,144 +2549,29 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv3Enemy, function (sprite, othe
     Spawning = false
     Guard = false
     EnemyImg = otherSprite.image
-    for (let value7 of sprites.allOfKind(SpriteKind.Enemy)) {
-        value7.setImage(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        value.setImage(img`
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
             `)
-        value7.follow(mySprite, 0)
-    }
-    for (let value8 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
-        value8.setImage(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `)
-        value8.follow(mySprite, 0)
-    }
-    Fight = true
-    otherSprite.setImage(EnemyImg)
-    tiles.setCurrentTilemap(tilemap`level6`)
-    tiles.placeOnTile(sprite, tiles.getTileLocation(3, 2))
-    P2Teleport()
-    tiles.placeOnTile(otherSprite, tiles.getTileLocation(3, 1))
-    statusbar2 = statusbars.create(20, 4, StatusBarKind.EnemyHealth)
-    statusbar2.attachToSprite(otherSprite)
-    statusbar2.max = 120
-    statusbar2.value = statusbar2.max
-    statusbar2.setColor(10, 15, 6)
-    timer.after(500, function () {
-        for (let index = 0; index < 5; index++) {
-            pause(750)
-            projectile = sprites.createProjectileFromSprite(img`
-                a a a a a a a a f f f f f f f f 
-                a a a a a a a a f f f f f f f f 
-                a a a a a a a a f f f f f f f f 
-                a a a a a a a a f f f f f f f f 
-                a a a a a a a a f f f f f f f f 
-                a a a a a a a a f f f f f f f f 
-                a a a a a a a a f f f f f f f f 
-                a a a a a a a a f f f f f f f f 
-                f f f f f f f f a a a a a a a a 
-                f f f f f f f f a a a a a a a a 
-                f f f f f f f f a a a a a a a a 
-                f f f f f f f f a a a a a a a a 
-                f f f f f f f f a a a a a a a a 
-                f f f f f f f f a a a a a a a a 
-                f f f f f f f f a a a a a a a a 
-                f f f f f f f f a a a a a a a a 
-                `, otherSprite, randint(-50, 50), 100)
-            projectile.setFlag(SpriteFlag.GhostThroughWalls, true)
-            projectile.setKind(SpriteKind.Null_Txt)
-        }
-        timer.after(3750, function () {
-            playerTurn()
-            shootingSprite = otherSprite
-            mySprite4 = sprites.create(img`
-                . . . . . 1 1 1 1 1 1 . . . . . 
-                . . . . . . 1 1 1 1 . . . . . . 
-                . . . . . . . 1 1 . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                1 . . . . . . . . . . . . . . 1 
-                1 1 . . . . . . . . . . . . 1 1 
-                1 1 1 . . . . . . . . . . 1 1 1 
-                1 1 1 . . . . . . . . . . 1 1 1 
-                1 1 . . . . . . . . . . . . 1 1 
-                1 . . . . . . . . . . . . . . 1 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . 1 1 . . . . . . . 
-                . . . . . . 1 1 1 1 . . . . . . 
-                . . . . . 1 1 1 1 1 1 . . . . . 
-                `, SpriteKind.cursor)
-            tiles.placeOnRandomTile(mySprite4, assets.tile`myTile57`)
-        })
-    })
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile103`, function (sprite, location) {
-    Spawning = false
-    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
-    tiles.setCurrentTilemap(tilemap`level12`)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 8))
-    P2Teleport()
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, otherSprite) {
-    game.showLongText("ShadowOfDarkness Approaches!", DialogLayout.Bottom)
-    otherSprite.follow(sprite, 0)
-    EnemyLevel = 4
-    CurrentTilemap = tileUtil.currentTilemap()
-    PlayerTurn = false
-    Spawning = false
-    Guard = false
-    EnemyImg = otherSprite.image
-    for (let value9 of sprites.allOfKind(SpriteKind.Enemy)) {
-        value9.setImage(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `)
-        value9.follow(mySprite, 0)
+        value.follow(mySprite, 0)
     }
     for (let value10 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
         value10.setImage(img`
@@ -2733,6 +2629,134 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, othe
                 `, otherSprite, randint(-50, 50), 100)
             projectile.setFlag(SpriteFlag.GhostThroughWalls, true)
             projectile.setKind(SpriteKind.Null_Txt)
+        }
+        timer.after(3750, function () {
+            playerTurn()
+            shootingSprite = otherSprite
+            mySprite4 = sprites.create(img`
+                . . . . . 1 1 1 1 1 1 . . . . . 
+                . . . . . . 1 1 1 1 . . . . . . 
+                . . . . . . . 1 1 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                1 . . . . . . . . . . . . . . 1 
+                1 1 . . . . . . . . . . . . 1 1 
+                1 1 1 . . . . . . . . . . 1 1 1 
+                1 1 1 . . . . . . . . . . 1 1 1 
+                1 1 . . . . . . . . . . . . 1 1 
+                1 . . . . . . . . . . . . . . 1 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 1 1 . . . . . . . 
+                . . . . . . 1 1 1 1 . . . . . . 
+                . . . . . 1 1 1 1 1 1 . . . . . 
+                `, SpriteKind.cursor)
+            tiles.placeOnRandomTile(mySprite4, assets.tile`myTile57`)
+        })
+    })
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile103`, function (sprite, location) {
+    Spawning = false
+    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
+    tiles.setCurrentTilemap(tilemap`level12`)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 8))
+    P2Teleport()
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, otherSprite) {
+    game.showLongText("ShadowOfDarkness Approaches!", DialogLayout.Bottom)
+    otherSprite.follow(sprite, 0)
+    EnemyLevel = 4
+    CurrentTilemap = tileUtil.currentTilemap()
+    PlayerTurn = false
+    Spawning = false
+    Guard = false
+    EnemyImg = otherSprite.image
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        value.setImage(img`
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            `)
+        value.follow(mySprite, 0)
+    }
+    for (let value12 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
+        value12.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        value12.follow(mySprite, 0)
+    }
+    Fight = true
+    otherSprite.setImage(EnemyImg)
+    tiles.setCurrentTilemap(tilemap`level6`)
+    tiles.placeOnTile(sprite, tiles.getTileLocation(3, 2))
+    P2Teleport()
+    tiles.placeOnTile(otherSprite, tiles.getTileLocation(3, 1))
+    statusbar2 = statusbars.create(20, 4, StatusBarKind.EnemyHealth)
+    statusbar2.attachToSprite(otherSprite)
+    statusbar2.max = 30
+    statusbar2.value = statusbar2.max
+    statusbar2.setColor(2, 1, 5)
+    timer.after(500, function () {
+        for (let index = 0; index < 5; index++) {
+            pause(750)
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . 6 6 . . . . . . . . 
+                . . . . . 6 9 9 6 . . . . . . . 
+                . . . . . 6 9 9 6 . . . . . . . 
+                . . . . . . 6 6 . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, otherSprite, randint(-50, 50), 100)
+            projectile.setFlag(SpriteFlag.GhostThroughWalls, true)
         }
         timer.after(3750, function () {
             playerTurn()
@@ -2912,29 +2936,40 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     Spawning = false
     Guard = false
     EnemyImg = otherSprite.image
-    for (let value11 of sprites.allOfKind(SpriteKind.Enemy)) {
-        value11.setImage(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        value.setImage(img`
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
+            ................
             `)
-        value11.follow(mySprite, 0)
+        value.follow(mySprite, 0)
     }
-    for (let value12 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
-        value12.setImage(img`
+    for (let value8 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
+        value8.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2952,7 +2987,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `)
-        value12.follow(mySprite, 0)
+        value8.follow(mySprite, 0)
     }
     Fight = true
     otherSprite.setImage(EnemyImg)
@@ -2962,31 +2997,32 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     tiles.placeOnTile(otherSprite, tiles.getTileLocation(3, 1))
     statusbar2 = statusbars.create(20, 4, StatusBarKind.EnemyHealth)
     statusbar2.attachToSprite(otherSprite)
-    statusbar2.max = 30
+    statusbar2.max = 120
     statusbar2.value = statusbar2.max
-    statusbar2.setColor(2, 1, 5)
+    statusbar2.setColor(10, 15, 6)
     timer.after(500, function () {
         for (let index = 0; index < 5; index++) {
             pause(750)
             projectile = sprites.createProjectileFromSprite(img`
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . 6 6 . . . . . . . . 
-                . . . . . 6 9 9 6 . . . . . . . 
-                . . . . . 6 9 9 6 . . . . . . . 
-                . . . . . . 6 6 . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
+                a a a a a a a a f f f f f f f f 
+                a a a a a a a a f f f f f f f f 
+                a a a a a a a a f f f f f f f f 
+                a a a a a a a a f f f f f f f f 
+                a a a a a a a a f f f f f f f f 
+                a a a a a a a a f f f f f f f f 
+                a a a a a a a a f f f f f f f f 
+                a a a a a a a a f f f f f f f f 
+                f f f f f f f f a a a a a a a a 
+                f f f f f f f f a a a a a a a a 
+                f f f f f f f f a a a a a a a a 
+                f f f f f f f f a a a a a a a a 
+                f f f f f f f f a a a a a a a a 
+                f f f f f f f f a a a a a a a a 
+                f f f f f f f f a a a a a a a a 
+                f f f f f f f f a a a a a a a a 
                 `, otherSprite, randint(-50, 50), 100)
             projectile.setFlag(SpriteFlag.GhostThroughWalls, true)
+            projectile.setKind(SpriteKind.Null_Txt)
         }
         timer.after(3750, function () {
             playerTurn()
@@ -3639,7 +3675,7 @@ forever(function () {
                                 Action = true
                             })
                         }
-                    } else if (story.checkLastAnswer("+10 Max Health-25 Gold")) {
+                    } else if (story.checkLastAnswer("+10 Health-25 Gold")) {
                         if (Money >= 0) {
                             Money += -25
                             game.showLongText("Max health + 10!", DialogLayout.Bottom)
