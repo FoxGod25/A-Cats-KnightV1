@@ -2481,7 +2481,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile148`, function (sprite, location) {
-    tiles.setCurrentTilemap(tilemap`level20`)
+    tiles.setCurrentTilemap(tilemap`level46`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile125`, function (sprite, location) {
     if (controller.A.isPressed()) {
