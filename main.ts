@@ -8,11 +8,75 @@ namespace SpriteKind {
     export const Lv4Enemy = SpriteKind.create()
     export const Lv3Enemy = SpriteKind.create()
     export const Null_Txt = SpriteKind.create()
+    export const P3 = SpriteKind.create()
 }
 namespace StatusBarKind {
     export const Lv2EnemyHealth = StatusBarKind.create()
     export const P2Health = StatusBarKind.create()
+    export const P3Health = StatusBarKind.create()
 }
+statusbars.onZero(StatusBarKind.P3Health, function (status) {
+    NumberOfPlayers += -1
+    while (statusbar4.value == 0) {
+        animation.runImageAnimation(
+        statusbar4.spriteAttachedTo(),
+        [img`
+            ..cc......cc....
+            ..cfc....cfc....
+            ..cf69..96fc....
+            ..c69999996c....
+            ...99999999.....
+            ...99999999.....
+            ...99999999.....
+            ...11999911.....
+            ..221199114.....
+            .112222224411..1
+            .129222244991.1d
+            1c1911991191c1dd
+            1cc19111191cc11d
+            .111911111111991
+            ...1999919999991
+            ...199119199991.
+            ..d19911991111..
+            .d1999119991d...
+            dd1111dd1111dd..
+            .dddddddddddd...
+            `],
+        100,
+        true
+        )
+        statusbar4.spriteAttachedTo().setKind(SpriteKind.P2Down)
+        if (statusbar4.value >= 1) {
+            animation.runImageAnimation(
+            statusbar4.spriteAttachedTo(),
+            [img`
+                ..cc......cc....
+                ..cfc....cfc....
+                ..cf69..96fc....
+                ..c69999996c....
+                ...99999999.....
+                ...92999929.....
+                ...99299299.....
+                ...111ff1112....
+                ...4111111222...
+                .114422222222..1
+                .199442222991.1d
+                1c1911991191c1dd
+                1cc19111191cc11d
+                .111911119111991
+                ...1999999199991
+                ...199119911991.
+                ..d19911991d....
+                .d1999119991d...
+                dd1111dd1111dd..
+                .dddddddddddd...
+                `],
+            100,
+            true
+            )
+        }
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile76`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level2`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 8))
@@ -1313,6 +1377,17 @@ scene.onOverlapTile(SpriteKind.cursor, assets.tile`myTile57`, function (sprite, 
         }
     }
 })
+sprites.onOverlap(SpriteKind.P3, SpriteKind.Lv2Proj, function (sprite, otherSprite) {
+    if (Guard) {
+        statusbar3.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+        statusbar3.value += randint(-5, -10) + 2
+        pause(1000)
+    } else {
+        statusbar3.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+        statusbar3.value += randint(-5, -10)
+        pause(1000)
+    }
+})
 sprites.onOverlap(SpriteKind.P2, SpriteKind.Lv2Proj, function (sprite, otherSprite) {
     if (Guard) {
         statusbar3.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
@@ -1700,6 +1775,17 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile117`, function (sprite,
     sprites.destroy(mySprite8)
     P2Teleport()
 })
+sprites.onOverlap(SpriteKind.P3, SpriteKind.Null_Txt, function (sprite, otherSprite) {
+    if (Guard) {
+        statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+        statusbar.value += randint(-10, -12) + 2
+        pause(1000)
+    } else {
+        statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+        statusbar.value += randint(-10, -12)
+        pause(1000)
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile74`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level5`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(30, 12))
@@ -1941,7 +2027,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile158`, function (sprite, location) {
     if (controller.A.isPressed()) {
-        tiles.setCurrentTilemap(tilemap`level15`)
+        tiles.setCurrentTilemap(tilemap`level46`)
         game.showLongText("Hello! Who are you?", DialogLayout.Bottom)
         game.showLongText("What? You're saying I look like that guy over there? Never seen him!", DialogLayout.Bottom)
         game.showLongText("Ya' know what? I feel like joining you guys. I have the feeling that we're going to go on a great adventure!", DialogLayout.Bottom)
@@ -1969,13 +2055,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile158`, function (sprite,
             dd1111dd1111dd..
             .dddddddddddd...
             ...dddddddd.....
-            `, SpriteKind.P2)
+            `, SpriteKind.P3)
         P2Teleport()
-        statusbar3 = statusbars.create(10, 2, StatusBarKind.P2Health)
-        statusbar3.max = 45
-        statusbar3.setColor(6, 2, 9)
-        statusbar3.value = 45
-        statusbar3.attachToSprite(mySprite7)
+        statusbar5 = statusbars.create(10, 2, StatusBarKind.P3Health)
+        statusbar5.max = 45
+        statusbar5.setColor(6, 2, 9)
+        statusbar5.value = 45
+        statusbar5.attachToSprite(mySprite7)
         mySprite7.z = mySprite.z - 1
         NumberOfPlayers = 3
     }
@@ -2379,6 +2465,52 @@ statusbars.onZero(StatusBarKind.Lv2EnemyHealth, function (status) {
             `)
         value6.follow(mySprite, 70)
     }
+    for (let value6 of sprites.allOfKind(SpriteKind.Lv3Enemy)) {
+        value6.setImage(img`
+            . . . . . . . 8 . . . . . . . . 
+            . . . . 8 . 8 f 8 . . 8 . . . . 
+            . . . 8 8 . 8 f 8 . 8 f 8 . . . 
+            . . 8 8 f 8 f f 8 . 8 f 8 . . . 
+            . 8 f 8 f 8 f f 8 8 8 f 8 8 . . 
+            . 8 f 8 f 9 f f f 9 f f f 8 . . 
+            . 8 f f f 6 6 6 6 6 f f f 8 . . 
+            . 8 f f 6 f f f f f 6 f f 8 . . 
+            . 8 f 6 f f f f f f f 6 f 8 . . 
+            . 8 f 6 f f f f f f f 6 f 8 . . 
+            . 8 f 6 f 6 f f f 6 f 6 f 8 . . 
+            . 8 f f 6 f 6 6 6 6 6 6 f 8 . . 
+            . . 8 f f f f f f f f 6 f 8 . . 
+            . . 8 8 f f f f f f f f f 8 . . 
+            . . . . 8 8 f f f f f 8 8 . . . 
+            . . . . . . 8 8 8 8 8 . . . . . 
+            `)
+        value6.follow(mySprite, 70)
+    }
+    for (let value6 of sprites.allOfKind(SpriteKind.Lv4Enemy)) {
+        value6.setImage(img`
+            ................
+            ....cffffffc....
+            ...c6fc66cf6c...
+            ..cffcc66ccffc..
+            ..ccf2cecc2fcc..
+            ....fcecc2cf....
+            ....fe2ec2cf....
+            ....ffccccff....
+            ...ccffffffcc...
+            ..cfccccccccfc..
+            ..c6fccccccf6c..
+            .cf66ffffff66fc.
+            .cffcffffffcffc.
+            ..cccffffffcccf.
+            ....cffffffcffc.
+            ....cffccffccf6c
+            ...fccccccccfcfc
+            ..fcfffccfffcfcc
+            .ffccccffccccff.
+            ..ffffffffffff..
+            `)
+        value6.follow(mySprite, 70)
+    }
     timer.after(50, function () {
         if (MomoSavingQuest) {
             game.showLongText("You saved me. Thank you!", DialogLayout.Bottom)
@@ -2500,8 +2632,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile125`, function (sprite,
             game.showLongText("You have the wood? Great! I've just lit the fire at the top. Good luck!", DialogLayout.Bottom)
             scene.cameraShake(10, 1000)
             timer.after(1000, function () {
-                tiles.setCurrentTilemap(tilemap`level41`)
-                Spawning = true
+                if (NumberOfPlayers > 3) {
+                    tiles.setCurrentTilemap(tilemap`level41`)
+                    Spawning = true
+                } else {
+                    tiles.setCurrentTilemap(tilemap`level46`)
+                    Spawning = true
+                }
             })
         } else {
             game.showLongText("Hello. This is the gateway between worlds.", DialogLayout.Bottom)
@@ -2658,7 +2795,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv3Enemy, function (sprite, othe
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile103`, function (sprite, location) {
     Spawning = false
     sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
-    tiles.setCurrentTilemap(tilemap`level12`)
+    tiles.setCurrentTilemap(tilemap`level36`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 8))
     P2Teleport()
 })
@@ -2782,6 +2919,17 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, othe
             tiles.placeOnRandomTile(mySprite4, assets.tile`myTile57`)
         })
     })
+})
+sprites.onOverlap(SpriteKind.P3, SpriteKind.Projectile, function (sprite, otherSprite) {
+    if (Guard) {
+        statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+        statusbar.value += randint(-3, -5) + 2
+        pause(1000)
+    } else {
+        statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+        statusbar.value += randint(-3, -5)
+        pause(1000)
+    }
 })
 scene.onPathCompletion(SpriteKind.P2, function (sprite, location) {
     scene.followPath(sprite, scene.aStar(sprite.tilemapLocation(), P1OldLocation), 100)
@@ -3113,6 +3261,7 @@ let mySprite3: Sprite = null
 let Enemies = 0
 let WoodFetchQuest = false
 let Wood = false
+let statusbar5: StatusBarSprite = null
 let mySprite5: Sprite = null
 let MomoSavingQuest = false
 let Money = 0
