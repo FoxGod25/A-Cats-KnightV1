@@ -855,8 +855,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv2Enemy, function (sprite, othe
             `)
         value.follow(mySprite, 0)
     }
-    for (let value of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
-        value.setImage(img`
+    for (let value2 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
+        value2.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -874,7 +874,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv2Enemy, function (sprite, othe
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `)
-        value.follow(mySprite, 0)
+        value2.follow(mySprite, 0)
     }
     Fight = true
     otherSprite.setImage(EnemyImg)
@@ -1708,8 +1708,8 @@ statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
     Fight = false
     tiles.setCurrentTilemap(CurrentTilemap)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(Column, Row))
-    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
-        value.setImage(img`
+    for (let value3 of sprites.allOfKind(SpriteKind.Enemy)) {
+        value3.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -1727,10 +1727,10 @@ statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
             6 6 6 9 9 9 9 9 9 9 9 9 9 6 6 6 
             . 6 6 6 6 6 6 6 6 6 6 6 6 6 6 . 
             `)
-        value.follow(mySprite, 70)
+        value3.follow(mySprite, 70)
     }
-    for (let value of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
-        value.setImage(img`
+    for (let value4 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
+        value4.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -1748,7 +1748,7 @@ statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
             4 4 4 5 5 5 5 5 5 5 5 5 5 4 4 4 
             . 4 4 4 4 4 4 4 4 4 4 4 4 4 4 . 
             `)
-        value.follow(mySprite, 70)
+        value4.follow(mySprite, 70)
     }
     timer.after(50, function () {
         if (LuckyQuest) {
@@ -2326,8 +2326,8 @@ statusbars.onZero(StatusBarKind.Lv2EnemyHealth, function (status) {
     Fight = false
     tiles.setCurrentTilemap(CurrentTilemap)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(Column, Row))
-    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
-        value.setImage(img`
+    for (let value5 of sprites.allOfKind(SpriteKind.Enemy)) {
+        value5.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2345,10 +2345,10 @@ statusbars.onZero(StatusBarKind.Lv2EnemyHealth, function (status) {
             6 6 6 9 9 9 9 9 9 9 9 9 9 6 6 6 
             . 6 6 6 6 6 6 6 6 6 6 6 6 6 6 . 
             `)
-        value.follow(mySprite, 70)
+        value5.follow(mySprite, 70)
     }
-    for (let value of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
-        value.setImage(img`
+    for (let value6 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
+        value6.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2366,7 +2366,7 @@ statusbars.onZero(StatusBarKind.Lv2EnemyHealth, function (status) {
             4 4 4 5 5 5 5 5 5 5 5 5 5 4 4 4 
             . 4 4 4 4 4 4 4 4 4 4 4 4 4 4 . 
             `)
-        value.follow(mySprite, 70)
+        value6.follow(mySprite, 70)
     }
     timer.after(50, function () {
         if (MomoSavingQuest) {
@@ -2538,8 +2538,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv3Enemy, function (sprite, othe
     Spawning = false
     Guard = false
     EnemyImg = otherSprite.image
-    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
-        value.setImage(img`
+    for (let value7 of sprites.allOfKind(SpriteKind.Enemy)) {
+        value7.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2557,10 +2557,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv3Enemy, function (sprite, othe
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `)
-        value.follow(mySprite, 0)
+        value7.follow(mySprite, 0)
     }
-    for (let value of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
-        value.setImage(img`
+    for (let value8 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
+        value8.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2578,7 +2578,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv3Enemy, function (sprite, othe
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `)
-        value.follow(mySprite, 0)
+        value8.follow(mySprite, 0)
     }
     Fight = true
     otherSprite.setImage(EnemyImg)
@@ -2656,8 +2656,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, othe
     Spawning = false
     Guard = false
     EnemyImg = otherSprite.image
-    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
-        value.setImage(img`
+    for (let value9 of sprites.allOfKind(SpriteKind.Enemy)) {
+        value9.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2675,10 +2675,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, othe
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `)
-        value.follow(mySprite, 0)
+        value9.follow(mySprite, 0)
     }
-    for (let value of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
-        value.setImage(img`
+    for (let value10 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
+        value10.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2696,7 +2696,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Lv4Enemy, function (sprite, othe
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `)
-        value.follow(mySprite, 0)
+        value10.follow(mySprite, 0)
     }
     Fight = true
     otherSprite.setImage(EnemyImg)
@@ -2912,8 +2912,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     Spawning = false
     Guard = false
     EnemyImg = otherSprite.image
-    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
-        value.setImage(img`
+    for (let value11 of sprites.allOfKind(SpriteKind.Enemy)) {
+        value11.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2931,10 +2931,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `)
-        value.follow(mySprite, 0)
+        value11.follow(mySprite, 0)
     }
-    for (let value of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
-        value.setImage(img`
+    for (let value12 of sprites.allOfKind(SpriteKind.Lv2Enemy)) {
+        value12.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -2952,7 +2952,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `)
-        value.follow(mySprite, 0)
+        value12.follow(mySprite, 0)
     }
     Fight = true
     otherSprite.setImage(EnemyImg)
@@ -3639,7 +3639,7 @@ forever(function () {
                                 Action = true
                             })
                         }
-                    } else if (story.checkLastAnswer("+10 Health-25 Gold")) {
+                    } else if (story.checkLastAnswer("+10 Max Health-25 Gold")) {
                         if (Money >= 0) {
                             Money += -25
                             game.showLongText("Max health + 10!", DialogLayout.Bottom)
