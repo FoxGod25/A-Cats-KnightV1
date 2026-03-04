@@ -1499,8 +1499,21 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile46`, function (sprite, 
 })
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
     animation.stopAnimation(animation.AnimationTypes.All, mySprite)
-    if (mySprite6) {
-        scene.followPath(mySprite6, scene.aStar(mySprite6.tilemapLocation(), P1OldLocation), 200)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile152`, function (sprite, location) {
+    if (controller.A.isPressed()) {
+        controller.moveSprite(mySprite, 0, 0)
+        game.showLongText("Bright: \"I got this.\"", DialogLayout.Bottom)
+        game.showLongText("Bright reads the tablet.", DialogLayout.Bottom)
+        scene.cameraShake(8, 1000)
+        effects.blizzard.startScreenEffect(1000)
+        timer.after(750, function () {
+            game.showLongText("Shade: \"Not good!\"", DialogLayout.Bottom)
+            timer.after(250, function () {
+                Zoom.SetZoomFilter(0.5, Mode.Center, 500)
+                tiles.setCurrentTilemap(tilemap`level53`)
+            })
+        })
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile33`, function (sprite, location) {
@@ -1763,9 +1776,6 @@ sprites.onOverlap(SpriteKind.P2, SpriteKind.Null_Txt, function (sprite, otherSpr
 })
 controller.left.onEvent(ControllerButtonEvent.Released, function () {
     animation.stopAnimation(animation.AnimationTypes.All, mySprite)
-    if (mySprite6) {
-        scene.followPath(mySprite6, scene.aStar(mySprite6.tilemapLocation(), P1OldLocation), 200)
-    }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile117`, function (sprite, location) {
     Spawning = false
@@ -2386,9 +2396,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile111`, function (sprite,
 })
 controller.up.onEvent(ControllerButtonEvent.Released, function () {
     animation.stopAnimation(animation.AnimationTypes.All, mySprite)
-    if (mySprite6) {
-        scene.followPath(mySprite6, scene.aStar(mySprite6.tilemapLocation(), P1OldLocation), 200)
-    }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile43`, function (sprite, location) {
     if (Sword) {
@@ -2411,6 +2418,9 @@ sprites.onOverlap(SpriteKind.P2, SpriteKind.Projectile, function (sprite, otherS
         statusbar3.value += randint(-3, -5) + 2
         pause(1000)
     }
+})
+scene.onPathCompletion(SpriteKind.P3, function (sprite, location) {
+    scene.followPath(mySprite7, scene.aStar(mySprite7.tilemapLocation(), P1OldLocation), 100)
 })
 statusbars.onZero(StatusBarKind.Lv2EnemyHealth, function (status) {
     MoneyChanged = randint(7, 10)
@@ -2624,7 +2634,8 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile148`, function (sprite, location) {
-    tiles.setCurrentTilemap(tilemap`level46`)
+    tiles.setCurrentTilemap(tilemap`level15`)
+    Spawning = false
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile125`, function (sprite, location) {
     if (controller.A.isPressed()) {
@@ -2932,7 +2943,7 @@ sprites.onOverlap(SpriteKind.P3, SpriteKind.Projectile, function (sprite, otherS
     }
 })
 scene.onPathCompletion(SpriteKind.P2, function (sprite, location) {
-    scene.followPath(sprite, scene.aStar(sprite.tilemapLocation(), P1OldLocation), 100)
+    scene.followPath(mySprite6, scene.aStar(mySprite6.tilemapLocation(), P1OldLocation), 100)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, location) {
     sprites.destroy(mySprite2)
@@ -3642,6 +3653,9 @@ game.onUpdateInterval(5000, function () {
             	
             }
         }
+    }
+    if (tileUtil.currentTilemap() != tilemap`level14`) {
+        sprites.destroyAllSpritesOfKind(SpriteKind.Darkness)
     }
 })
 game.onUpdateInterval(15000, function () {

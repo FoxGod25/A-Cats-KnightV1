@@ -9,7 +9,8 @@
         "Timers": "github:microsoft/arcade-timers#v1.1.0",
         "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
-        "arcade-tilemap-a-star": "github:jwunderl/arcade-tilemap-a-star#v0.4.0"
+        "arcade-tilemap-a-star": "github:jwunderl/arcade-tilemap-a-star#v0.4.0",
+        "pxt-zoom": "github:kiwiphoenix364/pxt-zoom#v3.0.3"
     },
     "files": [
         "main.blocks",
